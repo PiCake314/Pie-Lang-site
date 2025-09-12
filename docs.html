@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+  // Apply dark mode immediately to avoid white flash
+  ( () => {
+      document.documentElement.classList.add("dark-mode");
+
+    // const isDark = localStorage.getItem("theme") === "dark";
+    // if (isDark) {
+    //   document.documentElement.classList.add("dark-mode");
+    // }
+  })();
+</script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="img/PiLangIconBG_REMOVED.png">
+  <title>Pie | A High-Level Interpreted Language | Lower Chaos Closures</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <script src="prism-pie.js"></script>
+  <!-- Add the marked library -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <div class="nav-bar">
+    <nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <li><i class="bi bi-moon toggle-mobile" id="toggleDarkMobile"></i></li>
+
+      <div class="nav-links" id="navLinks">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://github.com/PieCake314/Pie" target="_blank">Download</a>
+          </li>
+          <li><a href="docs.html">Docs</a></li>
+          <!-- <li><i class="bi bi-moon toggle-desktop" id="toggleDark"></i></li> -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="docs-container" id="docs-container">
+    <p>Loading documentation...</p>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Pie Programming Language. All rights reserved. Created by <a href="https://github.com/PiCake314"
+        target="_blank" class="footer-link">Pie Team</a></p>
+  </footer>
+</body>
+
+</html>
