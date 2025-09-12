@@ -264,7 +264,7 @@ const codeSamples = {
   print(1 + 2);
   print("Hello" + "World");
     `,
-    '`1 + 2` picks the first overload. `"Hello" + "World` picks the second.'
+    '`1 + 2` picks the first overload. `"Hello" + "World"` picks the second.'
 ],
 
 "Quirks": [`  print = __builtin_print;
