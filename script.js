@@ -255,7 +255,7 @@ const codeSamples = {
 
   print(5 !);
     `,
-    ""
+    "This prints 120"
 ],
 
 "Quirks": [`  print = __builtin_print;
@@ -275,7 +275,7 @@ const codeSamples = {
   __builtin_reset(0);
   print(0);
   `,
-  "Guess what the output should be!"
+  "Guess what the output will be...:)"
 ],
 
 };
