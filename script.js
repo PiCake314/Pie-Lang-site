@@ -3,7 +3,8 @@ const body = document.body;
 
 function applyTheme(isDark) {
   document.documentElement.classList.toggle('dark-mode', isDark);
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  // localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  localStorage.setItem('theme', 'dark');
 
   // Toggle icon if present
   if (toggle) {
