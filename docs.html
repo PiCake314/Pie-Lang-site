@@ -4,12 +4,12 @@
 <script>
   // Apply dark mode immediately to avoid white flash
   ( () => {
-      document.documentElement.classList.add("dark-mode");
+      // document.documentElement.classList.add("dark-mode");
 
-    // const isDark = localStorage.getItem("theme") === "dark";
-    // if (isDark) {
-    //   document.documentElement.classList.add("dark-mode");
-    // }
+    const isDark = localStorage.getItem("theme") === "dark";
+    if (isDark) {
+      document.documentElement.classList.add("dark-mode");
+    }
   })();
 </script>
 
@@ -42,7 +42,7 @@
           <li><a href="https://github.com/PieCake314/Pie" target="_blank">Download</a>
           </li>
           <li><a href="docs.html">Docs</a></li>
-          <!-- <li><i class="bi bi-moon toggle-desktop" id="toggleDark"></i></li> -->
+          <li><i class="bi bi-moon toggle-desktop" id="toggleDark"></i></li>
         </ul>
       </div>
     </nav>
