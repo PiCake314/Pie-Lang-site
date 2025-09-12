@@ -239,10 +239,8 @@ const codeSamples = {
 
 "Operators": [`  print = __builtin_print;
 
-  prefix(LOW +) force = (s: Syntax) => __builtin_eval(__builtin_eval(s));
-
   infix(SUM)   - = (a: Int, b: Int): Int => __builtin_sub(a, b);
-  infix(SUM)   * = (a: Int, b: Int): Int => __builtin_mul(a, b);
+  infix(PROD)  * = (a: Int, b: Int): Int => __builtin_mul(a, b);
   infix(INFIX) < = (a: Int, b: Int): Bool => __builtin_lt(a, b);
 
   operator(CALL -) if : : else : = (cond: Bool, thn: Syntax, els: Syntax)
@@ -255,7 +253,18 @@ const codeSamples = {
 
   print(5 !);
     `,
-    "This prints 120"
+  "120 will be printed"
+],
+
+"Overloading": [`  print = __builtin_print;
+
+  infix(SUM)  + = (a: Int, b: Int): Int => __builtin_add(a, b);
+  infix(SUM)  + = (a: String, b: String): String => __builtin_concat(a, b);
+
+  print(1 + 2);
+  print("Hello" + "World");
+    `,
+    '`1 + 2` picks the first overload. `"Hello" + "World` picks the second.'
 ],
 
 "Quirks": [`  print = __builtin_print;
