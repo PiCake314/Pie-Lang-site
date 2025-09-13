@@ -189,14 +189,14 @@ const codeSamples = {
 
   // !
 "Variables-and-Types": [`
-  x: Any = 1;
+  x = 1;
   x = "Hello";
 
   y: Int = 1;
   y = 4;
 
-  z = 5.5;
-  z = "hi";
+  z: Any = 5.5;
+  z: Any = "hi";
   `,
   "Variables declared without type annotations posses the \"Any\" type!"
 ],
@@ -206,14 +206,18 @@ const codeSamples = {
 
   add: (Int, Int): Int = (a: Int, b: Int): Int => __builtin_add(a, b);
 
-  print(x);
+  x = 1;
+  y: Int = 2;
+  sum = add(x, y);
+
+  print(sum);
   `,
 ],
 
 // !
   "Control-Flow":  [`  print = __builtin_print;
 
-  x = __builtin_conditional(__builtin_lt(1, 2), "yay", "nay");
+  x = __builtin_conditional(true, "yay", "nay");
 
   print(x);
   `,
@@ -226,7 +230,6 @@ const codeSamples = {
   Human: Type = class {
     name: String = "";
     age: Int = 0;
-
     pet = "Cat"
   };
 
@@ -243,7 +246,7 @@ const codeSamples = {
   infix(PROD)  * = (a: Int, b: Int): Int => __builtin_mul(a, b);
   infix(INFIX) < = (a: Int, b: Int): Bool => __builtin_lt(a, b);
 
-  operator(CALL -) if : : else : = (cond: Bool, thn: Syntax, els: Syntax)
+  mixfix(CALL -) if : : else : = (cond: Bool, thn: Syntax, els: Syntax)
     => __builtin_eval(__builtin_conditional(cond, thn, els));
 
   fact = (n) => if (n < 2) { 1; } else { n * fact(n - 1); };
@@ -267,6 +270,19 @@ const codeSamples = {
     '`1 + 2` picks the first overload. `"Hello" + "World"` picks the second.'
 ],
 
+"Syntax Type": [`  print = __builtin_print;
+  infix(SUM) + = (a: Int, b: Int) => __builtin_add(a, b);
+
+  ast_node: Syntax = 1 + a;
+
+  a = 5;
+
+  result = __builtin_eval(a);
+  print(result);
+  `,
+  "The `Syntax` type gives you a handle to the AST node represeting an expression"
+],
+
 "Quirks": [`  print = __builtin_print;
   infix(SUM) + = (a: Int, b: Int) => __builtin_add(a, b);
 
@@ -281,6 +297,7 @@ const codeSamples = {
   print(1 + 6);
   print("Hello");
   print(0);
+
   __builtin_reset(0);
   print(0);
   `,

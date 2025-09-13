@@ -8,7 +8,7 @@ Prism.languages.pie = {
     greedy: true
   },
   'number': /\b\d+(?:\.\d+)?\b/,
-  'keyword': /\b(?:class|infix|prefix|suffix|exfix|operator)\b/,
+  'keyword': /\b(?:class|infix|prefix|suffix|exfix|mixfix|true|false)\b/,
   'type': {
     pattern: /\b(?:Any|Int|Bool|String|Lazy)\b/,
     alias: 'class-name'
