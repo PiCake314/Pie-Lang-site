@@ -180,7 +180,7 @@ if (selector && examples.length > 0) {
 
 // ====== CODE SAMPLE DATA AND PRISM HIGHLIGHTING ======
 const codeSamples = {
-"Hello-There": [`  print = __builtin_print;
+"Hello World!": [`  print = __builtin_print;
 
   print("Hello, World!");`,
 
@@ -215,14 +215,14 @@ const codeSamples = {
 ],
 
 // !
-  "Control-Flow":  [`  print = __builtin_print;
+  "Control Flow":  [`  print = __builtin_print;
 
   x = __builtin_conditional(true, "yay", "nay");
 
   print(x);
   `,
 
-  "Pie only has \"__builtin_conditional\" :).Other control-flow primitives can be made with custom operator."
+  "Pie only has \"__builtin_conditional\" :). Other control-flow primitives can be made with custom operators."
 ],
 
 "Structs": [`  print = __builtin_print;
@@ -242,16 +242,16 @@ const codeSamples = {
 
 "Operators": [`  print = __builtin_print;
 
-  infix(SUM)   - = (a: Int, b: Int): Int => __builtin_sub(a, b);
-  infix(PROD)  * = (a: Int, b: Int): Int => __builtin_mul(a, b);
-  infix(INFIX) < = (a: Int, b: Int): Bool => __builtin_lt(a, b);
+  infix - = (a: Int, b: Int): Int  => __builtin_sub(a, b);
+  infix * = (a: Int, b: Int): Int  => __builtin_mul(a, b);
+  infix < = (a: Int, b: Int): Bool => __builtin_lt (a, b);
 
-  mixfix(CALL -) if : : else : = (cond: Bool, thn: Syntax, els: Syntax)
+  mixfix([CALL -]) if : : else : = (cond: Bool, thn: Syntax, els: Syntax)
     => __builtin_eval(__builtin_conditional(cond, thn, els));
 
   fact = (n) => if (n < 2) { 1; } else { n * fact(n - 1); };
 
-  suffix(POSTFIX) ! = (x: Int): Int => fact(x);
+  suffix([]) ! = (x: Int): Int => fact(x);
 
 
   print(5 !);
@@ -261,8 +261,8 @@ const codeSamples = {
 
 "Overloading": [`  print = __builtin_print;
 
-  infix(SUM)  + = (a: Int, b: Int): Int => __builtin_add(a, b);
-  infix(SUM)  + = (a: String, b: String): String => __builtin_concat(a, b);
+  infix + = (a: Int,    b: Int   ): Int    => __builtin_add   (a, b);
+  infix + = (a: String, b: String): String => __builtin_concat(a, b);
 
   print(1 + 2);
   print("Hello" + "World");
@@ -271,7 +271,7 @@ const codeSamples = {
 ],
 
 "Syntax Type": [`  print = __builtin_print;
-  infix(SUM) + = (a: Int, b: Int) => __builtin_add(a, b);
+  infix + = (a: Int, b: Int) => __builtin_add(a, b);
 
   ast_node: Syntax = 1 + a;
 
@@ -284,7 +284,7 @@ const codeSamples = {
 ],
 
 "Quirks": [`  print = __builtin_print;
-  infix(SUM) + = (a: Int, b: Int) => __builtin_add(a, b);
+  infix + = (a: Int, b: Int) => __builtin_add(a, b);
 
   1 = 2;
   6 + 1 = 5;
