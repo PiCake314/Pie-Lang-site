@@ -490,6 +490,9 @@ pre[class*="language-"],
   text-decoration: underline;
 }
 
+
+
+
 /* ================================
    Docs
 ================================== */
@@ -1035,6 +1038,500 @@ container {
   .docs-container p code,
   .docs-container li code,
   .docs-container span code {
+    font-size: 0.7rem;
+    padding: 0.1em 0.3em;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    color: #d6336c; /* deep red/pink */
+  }
+}
+
+.code-note {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+.dark-mode .code-note { opacity: 0.9; }
+
+
+.code-block-wrapper {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.25rem;
+  right: 0rem;
+
+  border: none;
+  background: #444;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+}
+
+.copy-btn.copied {
+  background: #2ecc71;
+  color: #fff;
+}
+
+
+
+
+
+/* ================================
+   Spec
+================================== */
+.spec-container {
+  max-width: 900px;
+  height: 100%;
+  margin: 5% auto;
+  padding: 0px 20px;
+  background: var(--bg-body, #1e1e1e);
+  color: var(--color-text, #ddd);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.75;
+}
+
+.spec-container pre {
+  background: var(--bg-code, #2c2f33);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.spec-container code {
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.spec-container h1,
+.spec-container h2,
+.spec-container h3 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+/* Inline code in Markdown-rendered docs */
+.spec-container p code,
+.spec-container li code,
+.spec-container span code {
+  background-color: #f1f1f1;
+  padding: 0.2em 0.4em;
+  font-family: monospace;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  color: #d6336c; /* deep red/pink */
+}
+
+.spec-container a {
+  color: var(--color-text, #ddd);
+  text-decoration: none;
+}
+
+.spec-container a:hover {
+  text-decoration: underline;
+}
+
+
+/* ================================
+   Docs Dark Mode
+================================== */
+
+html.dark-mode .spec-container {
+  background-color: #2C2F33;
+  color: #DCDDDE;
+}
+
+html.dark-mode .spec-container a {
+  color: #DCDDDE;
+  text-decoration: none;
+}
+
+html.dark-mode .spec-container a:hover {
+  text-decoration: underline;
+}
+
+html.dark-mode .spec-container p code,
+html.dark-mode .spec-container li code,
+html.dark-mode .spec-container span code {
+  background-color: #2c2f33;
+  color: #ff7b96; /* brighter red/pink */
+}
+
+/* ================================
+   Anchor Link Light Mode
+================================== */
+
+/* Light mode heading link color */
+.spec-container h1 a.anchor-link,
+.spec-container h2 a.anchor-link,
+.spec-container h3 a.anchor-link,
+.spec-container h4 a.anchor-link {
+  color: var(--accent); /* or choose your preferred color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.spec-container h1 a.anchor-link:hover,
+.spec-container h2 a.anchor-link:hover,
+.spec-container h3 a.anchor-link:hover,
+.spec-container h4 a.anchor-link:hover {
+  color: #ff9d00; /* Brighter on hover */
+  text-decoration: underline;
+}
+
+/* ================================
+   Anchor Link Dark Mode
+================================== */
+
+html.dark-mode .spec-container h1 a.anchor-link,
+html.dark-mode .spec-container h2 a.anchor-link,
+html.dark-mode .spec-container h3 a.anchor-link,
+html.dark-mode .spec-container h4 a.anchor-link {
+  color: #79b8ff; /* bright blue for dark mode */
+}
+
+html.dark-mode .spec-container h1 a.anchor-link:hover,
+html.dark-mode .spec-container h2 a.anchor-link:hover,
+html.dark-mode .spec-container h3 a.anchor-link:hover,
+html.dark-mode .spec-container h4 a.anchor-link:hover {
+  color: #ffb347;
+}
+
+
+/* ================================
+   Responsive Design
+================================== */
+/* 
+@media (max-width: 1600px) {
+  .container {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-bar nav {
+    padding: 8px 16px;
+  }
+
+  .code_block pre[class*="language-"],
+  .code_block code[class*="language-"] {
+    font-size: 0.95rem;
+  }
+
+  .regular-layout {
+    padding-top: 50px;
+  }
+
+
+  .left-page,
+  .right-page {
+    max-width: 100%;
+  }
+
+  .spec-container {
+    max-width: 85%;
+    margin: 10% auto;
+    padding: 0px 15px;
+    font-size: 0.95rem;
+  }
+
+  .spec-container p {
+    font-size: 0.9rem;
+  }
+
+  .spec-container span code {
+    font-size: 0.85rem;
+  }
+
+
+  .footer {
+    position: relative;
+  }
+} */
+
+
+container {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-bar nav {
+    padding: 8px 16px;
+  }
+
+  /* .code_block pre[class*="language-"],
+  .code_block code[class*="language-"] {
+    font-size: 0.95rem;
+  } */
+
+.code_block {
+  width: 100%;
+
+  min-height: 270px;
+  /* max-height: 270px; */
+  min-width: 700px;
+  max-width: 700px;
+}
+
+
+
+  .regular-layout {
+    padding-top: 50px;
+  }
+
+  /* .book-layout {
+    padding-top: 50px;
+  } */
+
+  .left-page,
+  .right-page {
+    max-width: 100%;
+  }
+
+  .spec-container {
+    max-width: 85%;
+    margin: 10% auto;
+    padding: 0px 15px;
+    font-size: 0.95rem;
+  }
+
+  .spec-container p {
+    font-size: 0.9rem;
+  }
+
+  .spec-container span code {
+    font-size: 0.85rem;
+  }
+
+
+  .footer {
+    position: relative;
+  }
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-bar .toggle-desktop {
+    display: none; /* hide desktop toggle on mobile */
+  }
+
+
+  .nav-bar nav {
+    display: flex;
+    align-items: center;     /* ensures items inside are vertically aligned */
+    height: 45px;            /* or whatever height works well for your UI */
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    border-radius: 0;
+    left: -17px;
+    top: 0;
+    transform: none;
+  }
+
+  .toggle-mobile {
+    display: block; /* shows the mobile toggle */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-nav-text);
+    margin-bottom: 10px;
+  }
+
+  .hamburger {
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  .nav-links {
+    display: none; /* stays hidden by default */
+    flex-direction: column;
+    width: 100%; /* make it match full navbar width */
+    position: absolute;
+    top: 100%; /* right below the navbar */
+    left: 0px;
+    background-color: var(--bg-nav);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 6px 12px var(--shadow-dark);
+    z-index: 1000;
+  }
+
+  .nav-bar nav ul li a.active {
+    position: relative;
+    color: var(--accent);
+  }
+
+  .nav-bar nav ul li a.active::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+  }
+
+  .nav-links.active {
+    display: flex; /* shows it when toggled */
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-links ul li {
+    justify-content: center;
+    padding: 8px 0;
+  }
+
+  .link {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .codeBlockSwitcher {
+    width: 90%;
+  }
+
+  /* .code_block {
+    width: 100%;
+  } */
+
+  .code_block pre[class*="language-"],
+  .code_block code[class*="language-"] {
+    font-size: 0.65rem;
+  }
+
+  .mascot {
+    max-width: 150px;
+  }
+
+  .regular-layout h1 {
+    font-size: 1.5em;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .spec-container {
+    max-width: 75%;
+    margin: 15% auto;
+    padding: 0px 10px;
+    font-size: small;
+  }
+
+  .spec-container pre span code {
+    font-size: 0.55rem;
+  }
+
+  .footer {
+    position: relative;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+  }
+
+  .code_block {
+    width: 100%;
+    transform: translateX(-4.5%);
+    margin: 0 auto;
+  }
+
+  .code_block pre[class*="language-"],
+  .code_block code[class*="language-"] {
+    font-size: 0.50rem;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+  }
+
+  .nav-bar nav {
+    padding: 6px 12px;
+  }
+
+  .spec-container {
+    max-width: 90%;
+    margin: 20% auto;
+    padding: 0px 5px;
+    font-size: smaller;
+  }
+
+  .spec-container p {
+    font-size: 0.7rem;
+  }
+
+  .spec-container h1,
+  .spec-container h2,
+  .spec-container h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .spec-container h1 a.anchor-link,
+  .spec-container h2 a.anchor-link,
+  .spec-container h3 a.anchor-link {
+    font-size: 1rem;
+    color: var(--accent);
+    display: inline-block;
+    word-break: break-word;
+  }
+
+  .spec-container pre {
+    font-size: 0.65rem;
+    word-break: break-word;
+  }
+
+  .spec-container table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    font-size: 0.65rem;
+  }
+
+  .spec-container ul,
+  .spec-container ol {
+    padding-left: 1rem;
+  }
+
+  .spec-container pre code {
+    font-size: 0.60rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .spec-container p code,
+  .spec-container li code,
+  .spec-container span code {
     font-size: 0.7rem;
     padding: 0.1em 0.3em;
     border-radius: 4px;

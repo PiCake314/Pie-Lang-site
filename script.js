@@ -126,6 +126,81 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+
+  // Spec Container
+  
+  const specContainer = document.getElementById("spec-container");
+  if (specContainer) {
+    if (typeof marked === 'undefined') {
+      specContainer.innerHTML = "<p>❌ Marked library not loaded. Please check your internet connection.</p>";
+      return;
+    }
+
+    specContainer.innerHTML = "<p>Loading documentation...</p>";
+
+    // ✅ Custom Admonition Block Support
+    const admonitionExtension = {
+      extensions: [{
+        name: 'admonition',
+        level: 'block',
+        start(src) {
+          return src.match(/^\[!\w+\]/)?.index;
+        },
+        tokenizer(src) {
+          const match = src.match(/^\[!(\w+)\][ \t]*(.*?)\n((?:.+\n?)*)/);
+          if (match) {
+            return {
+              type: 'admonition',
+              raw: match[0],
+              kind: match[1].toLowerCase(),
+              title: match[2].trim(),
+              text: match[3].trim()
+            };
+          }
+        },
+        renderer(token) {
+          const title = token.title || token.kind.toUpperCase();
+          return `
+            <div class="admonition admonition-${token.kind}">
+              <div class="admonition-title">${title}</div>
+              <div class="admonition-body">${marked.parse(token.text)}</div>
+            </div>
+          `;
+        }
+      }]
+    };
+    marked.use(admonitionExtension);
+
+    const url = `https://raw.githubusercontent.com/PiCake314/Pie/refs/heads/main/spec.md?t=${Date.now()}`;
+
+    fetch(url)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.text();
+      })
+      .then(md => {
+        specContainer.innerHTML = marked.parse(md);
+
+        // Auto-link and scroll to headings
+        specContainer.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading, index) => {
+          const id = heading.textContent.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+          heading.id = id;
+          heading.innerHTML = `<a href="#${id}" class="anchor-link">${heading.innerHTML}</a>`;
+          heading.style.scrollBehavior = 'smooth';
+          heading.style.cursor = 'pointer';
+          heading.addEventListener('click', () => {
+            window.location.hash = `#${id}`;
+          });
+        });
+
+        Prism.highlightAll();
+      })
+      .catch(err => {
+        specContainer.innerHTML = "<p>❌ Failed to load docs. Try again later.</p>";
+        console.error("Error loading docs:", err);
+      });
+  }
+
   // ✅ Fetch latest GitHub release version and update DOM
   // fetch("https://api.github.com/repos/PiCake314/Pie/releases/latest")
   fetch("https://api.github.com/repos/PiCake314/Pie")
@@ -187,19 +262,19 @@ const codeSamples = {
   "All builtin functions start with \"__builtin_\"."
 ],
 
-  // !
-"Variables-and-Types": [`
-  x = 1;
-  x = "Hello";
+//   // !
+// "Variables-and-Types": [`
+//   x = 1;
+//   x = "Hello";
 
-  y: Int = 1;
-  y = 4;
+//   y: Int = 1;
+//   y = 4;
 
-  z: Any = 5.5;
-  z: Any = "hi";
-  `,
-  "Variables declared without type annotations posses the \"Any\" type!"
-],
+//   z: Any = 5.5;
+//   z: Any = "hi";
+//   `,
+//   "Variables declared without type annotations posses the \"Any\" type!"
+// ],
 
   // !
 "Functions": [`  print = __builtin_print;
@@ -225,7 +300,7 @@ const codeSamples = {
   "Pie only has \"__builtin_conditional\" :). Other control-flow primitives can be made with custom operators."
 ],
 
-"Structs": [`  print = __builtin_print;
+"Classes": [`  print = __builtin_print;
 
   Human: Type = class {
     name: String = "";
