@@ -220,7 +220,7 @@ window.addEventListener("DOMContentLoaded", () => {
         versionSpan.textContent = versionClean;
       }
 
-      versionSpan.textContent = "v1.0.0";
+      // versionSpan.textContent = "v1.0.0";
     })
     .catch(err => {
       console.warn("⚠️ Failed to fetch GitHub release version:", err);
