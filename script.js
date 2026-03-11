@@ -202,8 +202,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   // ✅ Fetch latest GitHub release version and update DOM
-  // fetch("https://api.github.com/repos/PiCake314/Pie/releases/latest")
-  fetch("https://api.github.com/repos/PiCake314/Pie")
+  fetch("https://api.github.com/repos/PiCake314/Pie/releases/latest")
     .then(res => res.json())
     .then(data => {
       let versionRaw = data.tag_name || data.name || "";
