@@ -254,26 +254,26 @@ if (selector && examples.length > 0) {
 
 // ====== CODE SAMPLE DATA AND PRISM HIGHLIGHTING ======
 const codeSamples = {
-"Hello World!": [`  print = __builtin_print;
+"Hello-There": [`  print = __builtin_print;
 
   print("Hello, World!");`,
 
   "All builtin functions start with \"__builtin_\"."
 ],
 
-//   // !
-// "Variables-and-Types": [`
-//   x = 1;
-//   x = "Hello";
+  // !
+"Variables-and-Types": [`
+  x = 1;
+  x = "Hello";
 
-//   y: Int = 1;
-//   y = 4;
+  y: Int = 1;
+  y = 4;
 
-//   z: Any = 5.5;
-//   z: Any = "hi";
-//   `,
-//   "Variables declared without type annotations posses the \"Any\" type!"
-// ],
+  z: Any = 5.5;
+  z: Any = "hi";
+  `,
+  "Variables declared without type annotations posses the \"Any\" type!"
+],
 
   // !
 "Functions": [`  print = __builtin_print;
@@ -288,8 +288,7 @@ const codeSamples = {
   `,
 ],
 
-// !
-  "Control Flow":  [`  print = __builtin_print;
+"Control Flow":  [`  print = __builtin_print;
 
   x = __builtin_conditional(true, "yay", "nay");
 
